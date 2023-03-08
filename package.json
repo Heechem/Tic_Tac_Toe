@@ -1,0 +1,23 @@
+{
+  "name": "tic_tac_toe",
+  "version": "1.0.0",
+  "description": "first build of the TIC TAC TOE Struggling with the scopping of the functions Added some UI to visualize , will improve it at the end Followed a video to understand the script , but still strugguling Updated the UI , fully functionnal Logic to check if there is a winner is implemented Winning function implemented. tie logic implemented with a partial UI .",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heechem/Tic_Tac_Toe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heechem/Tic_Tac_Toe/issues"
+  },
+  "homepage": "https://github.com/Heechem/Tic_Tac_Toe#readme",
+  "dependencies": {
+    "eslint-config-wesbos": "^3.2.3"
+  }
+}

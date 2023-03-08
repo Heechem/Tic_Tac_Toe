@@ -38,20 +38,20 @@
   function handlclik() {
     boardGame.addEventListener('click', (e) => {
       const choice = e.target;
-      //adding the class to check the winner
+      // adding the class to check the winner
       const currentClass =
         defaultPlayer === player1 ? player1.class : player2.class;
 
       if (choice.dataset) {
         cellsId.forEach((cell) => {
-          if (choice.textContent == '') {
+          if (choice.textContent === '') {
             choice.textContent = defaultPlayer.input;
             if (defaultPlayer === player1) {
               choice.classList.add(currentClass);
             } else {
               choice.classList.add(currentClass);
             }
-            let classGame = choice.className;
+            const classGame = choice.className;
             console.log(classGame);
             checkWinner(currentClass);
             if (endGame(currentClass)) {
@@ -73,7 +73,7 @@
   }
   handlclik();
 
-  //check the end of the game
+  // check the end of the game
 
   function checkWinner(currentClass) {
     winnerArr.push(currentClass);
