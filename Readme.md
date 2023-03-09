@@ -6,3 +6,4 @@ Updated the UI , fully functionnal
 Logic to check if there is a winner is implemented
 Winning function implemented.
 tie logic implemented with a partial UI .
+Winner logic added and display of the winner and tie added also

@@ -24,6 +24,8 @@
   const paragraphe = document.querySelector('p');
   const WinningDisplay = document.querySelector('.winner');
   const restartBtn = document.querySelector('.restart');
+  let winner_1 = [];
+  let winner_2 = [];
   let defaultPlayer = player1;
   playerTurn.textContent = 'player 1 start please ';
 
@@ -42,33 +44,37 @@
       const currentClass =
         defaultPlayer === player1 ? player1.class : player2.class;
 
-      if (choice.dataset) {
-        cellsId.forEach((cell) => {
-          if (choice.textContent === '') {
-            choice.textContent = defaultPlayer.input;
-            if (defaultPlayer === player1) {
-              choice.classList.add(currentClass);
+      if (!choice.dataset) return;
+
+      checkWinner(currentClass);
+      finalWinner();
+      cellsId.forEach((cell) => {
+        if (choice.textContent === '') {
+          choice.textContent = defaultPlayer.input;
+          if (defaultPlayer === player1) {
+            choice.classList.add(currentClass);
+          } else {
+            choice.classList.add(currentClass);
+          }
+          console.log(winner_1);
+
+          if (endGame(currentClass)) {
+            if (winner_1.flat().length > winner_2.flat().length) {
+              paragraphe.textContent = `${player1.class} wins`;
             } else {
-              choice.classList.add(currentClass);
-            }
-            const classGame = choice.className;
-            console.log(classGame);
-            checkWinner(currentClass);
-            if (endGame(currentClass)) {
-              console.log('yes');
-              WinningDisplay.classList.add('show');
-            }
-            if (!endGame(currentClass) && winnerArr.length === 9) {
-              WinningDisplay.classList.add('show');
-              paragraphe.innerText = `Its a tie , restart the game`;
+              paragraphe.textContent = `${player2.class} wins`;
             }
 
-            switchPlayer();
-          } else {
-            return;
+            WinningDisplay.classList.add('show');
           }
-        });
-      }
+          if (!endGame(currentClass) && winnerArr.length === 9) {
+            WinningDisplay.classList.add('show');
+            paragraphe.innerText = `Its a tie , restart the game`;
+          }
+
+          switchPlayer();
+        }
+      });
     });
   }
   handlclik();
@@ -77,8 +83,12 @@
 
   function checkWinner(currentClass) {
     winnerArr.push(currentClass);
+  }
 
-    console.log(winnerArr);
+  function finalWinner() {
+    winner_1 = winnerArr.filter((el) => el === player1.class);
+    winner_2 = winnerArr.filter((el) => el === player2.class);
+    return { winner_1, winner_2 };
   }
 
   function endGame(currentClass) {
