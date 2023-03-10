@@ -13,7 +13,7 @@
     [0, 4, 8],
     [2, 4, 6],
   ];
-  const winnerArr = [];
+  let winnerArr = [];
 
   const playerTurn = document.querySelector('.game_info');
   const boardGame = document.getElementById('board');
@@ -39,6 +39,7 @@
 
   function handlclik() {
     boardGame.addEventListener('click', (e) => {
+      console.log(e.target);
       const choice = e.target;
       // adding the class to check the winner
       const currentClass =
@@ -85,6 +86,8 @@
     winnerArr.push(currentClass);
   }
 
+  //  Recongnize the winner
+
   function finalWinner() {
     winner_1 = winnerArr.filter((el) => el === player1.class);
     winner_2 = winnerArr.filter((el) => el === player2.class);
@@ -98,4 +101,24 @@
       });
     });
   }
+
+  //  REstart the game
+
+  function restartGame() {
+    cells.forEach((cell) => {
+      cell.innerText = '';
+      cell.classList = 'cell';
+      console.log(cell);
+    });
+    winner_1 = [];
+    winner_2 = [];
+    winnerArr = [];
+
+    switchPlayer();
+    WinningDisplay.classList.remove('show');
+    paragraphe.textContent = '';
+    playerTurn.textContent = 'player 1 start please ';
+  }
+
+  restartBtn.addEventListener('click', restartGame);
 })();

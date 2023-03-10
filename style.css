@@ -50,7 +50,7 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.6);
   display: grid;
-  /* gap: 2rem; */
+
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   justify-content: center;
@@ -163,4 +163,45 @@ h2 {
 .winner.show {
   display: flex;
   transition: display 0.5s ease-in-out;
+}
+
+.winner_text {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 35%;
+  }
+  .container {
+    position: relative;
+  }
+  .board {
+    margin-top: 30%;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .cell {
+    height: 70%;
+    width: 70%;
+    /* font-size: 3rem; */
+    justify-self: center;
+  }
+  .winner {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    font-size: 4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .header {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
 }
