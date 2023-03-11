@@ -62,11 +62,11 @@
           if (endGame(currentClass)) {
             if (winner_1.flat().length > winner_2.flat().length) {
               paragraphe.textContent = `${player1.class} wins`;
+              WinningDisplay.classList.add('show');
             } else {
               paragraphe.textContent = `${player2.class} wins`;
+              WinningDisplay.classList.add('show');
             }
-
-            WinningDisplay.classList.add('show');
           }
           if (!endGame(currentClass) && winnerArr.length === 9) {
             WinningDisplay.classList.add('show');
