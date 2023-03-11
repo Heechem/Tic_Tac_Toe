@@ -67,8 +67,7 @@
               paragraphe.textContent = `${player2.class} wins`;
               WinningDisplay.classList.add('show');
             }
-          }
-          if (!endGame(currentClass) && winnerArr.length === 9) {
+          } else if (!endGame(currentClass) && winnerArr.length == 9) {
             WinningDisplay.classList.add('show');
             paragraphe.innerText = `Its a tie , restart the game`;
           }
